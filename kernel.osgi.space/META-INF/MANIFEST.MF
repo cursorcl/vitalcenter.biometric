@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Space
+Bundle-SymbolicName: kernel.osgi.space
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: EOS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: cl.eos.interfaces.view,
+ org.osgi.framework
+Export-Package: kernel.osgi,
+ kernel.osgi.api.space
+ 
