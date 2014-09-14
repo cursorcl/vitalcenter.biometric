@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Layout
+Bundle-SymbolicName: lib.mig.layout
+Bundle-Version: 1.0.0
+Bundle-ClassPath: miglayout15-swing.jar
+Bundle-Vendor: eos
+Export-Package: net.miginfocom.layout,
+ net.miginfocom.swing
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

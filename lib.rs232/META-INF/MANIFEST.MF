@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rs232
+Bundle-SymbolicName: lib.rs232
+Bundle-Version: 1.0.0
+Bundle-ClassPath: RXTXcomm.jar
+Bundle-Vendor: EOS
+Export-Package: gnu.io;version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

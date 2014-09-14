@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Provider
+Bundle-SymbolicName: vitalcenter.osgi.Rs232.provider
+Bundle-Version: 1.0.0
+Bundle-Activator: vitalcenter.osgi.rs232.provider.Activator
+Bundle-Vendor: EOS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.framework;version="1.3.0",
+ vitalcenter.osgi.rs232,
+ vitalcenter.osgi.status.api
+Require-Bundle: lib.rs232;bundle-version="1.0.0"
+Export-Package: vitalcenter.osgi.rs232.provider

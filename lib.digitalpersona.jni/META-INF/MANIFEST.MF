@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jni
+Bundle-SymbolicName: dpjni
+Bundle-Version: 1.0.0
+Bundle-ClassPath: dpotjni.jar
+Bundle-Vendor: EOS
+Export-Package: com.digitalpersona.onetouch.jni;version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
