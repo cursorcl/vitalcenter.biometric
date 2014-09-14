@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ViewApi
+Bundle-SymbolicName: kernel.osgi.api
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: EOS
+Export-Package: cl.eos.imp.controller,
+ cl.eos.imp.model,
+ cl.eos.imp.view,
+ cl.eos.interfaces.controller,
+ cl.eos.interfaces.criteria,
+ cl.eos.interfaces.entity,
+ cl.eos.interfaces.model,
+ cl.eos.interfaces.view
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
