@@ -1,0 +1,11 @@
+Bundle-ManifestVersion: 2
+Bundle-Name: Provider
+Bundle-SymbolicName: vitalcenter.osgi.persistence.provider
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.sqlite,
+ org.sqlite.javax,
+ vitalcenter.osgi.persistence.models,
+ org.osgi.framework
+Export-Package: vitalcenter.osgi.persistence
+Bundle-Activator: vitalcenter.osgi.activator.Activator

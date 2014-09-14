@@ -1,0 +1,9 @@
+Bundle-ManifestVersion: 2
+Bundle-Name: Persistence
+Bundle-SymbolicName: vitalcenter.osgi.persistence
+Bundle-Version: 1.0.0
+Bundle-Vendor: EOS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: vitalcenter.osgi.persistence.models
+Import-Package: cl.eos.imp.model,
+ cl.eos.interfaces.entity
