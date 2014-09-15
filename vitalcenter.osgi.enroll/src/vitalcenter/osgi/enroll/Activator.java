@@ -1,4 +1,4 @@
-package vitalcenter.osgi.validate;
+package vitalcenter.osgi.enroll;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,33 +10,24 @@ import kernel.osgi.api.space.IMainContainer;
 
 import org.osgi.framework.ServiceReference;
 
-import vitalcenter.osgi.digitalperson.status.validate.DPValidator;
 import vitalcenter.osgi.persistence.models.IClientService;
-import vitalcenter.osgi.rs232.IRS232Service;
 import vitalcenter.osgi.status.api.IStatusValidatorManager;
-import cl.eos.validate.controller.ValidateController;
-import cl.eos.validate.view.PnlValidate;
+import cl.eos.enroll.controller.EnrollController;
+import cl.eos.enroll.validator.DPValidator;
+import cl.eos.enroll.view.PnlEnroll;
 
-/**
- * The activator class controls the plug-in life cycle
- */
 public class Activator extends MonitoringActivator {
-
-	// The plug-in ID
-	public static final String PLUGIN_ID = "vitalcenter.osgi.validate"; //$NON-NLS-1$
 
 	private ServiceReference<?> containerRef = null;
 	private ServiceReference<?> clientServiceRef = null;
-	private ServiceReference<?> rs232ServiceRef = null;
 	private ServiceReference<?> statusValidatorManagerServiceRef = null;
 	private Map<String, Properties> serviceRequirements = null;
-	private PnlValidate viewContainer;
-	private IStatusValidatorManager statusValidatorManager = null;
+	private PnlEnroll viewContainer;
 	private IClientService clientService;
 	private IContainer container;
-	private IRS232Service rs232Service;
+	private IStatusValidatorManager statusValidatorManager = null;
 	private boolean initialized = false;
-	private ValidateController controller;
+	private EnrollController controller;
 
 	@Override
 	protected Map<String, Properties> getServiceRequirements() {
@@ -44,8 +35,8 @@ public class Activator extends MonitoringActivator {
 			serviceRequirements = new HashMap<String, Properties>();
 			serviceRequirements.put(IContainer.class.getName(), null);
 			serviceRequirements.put(IClientService.class.getName(), null);
-			serviceRequirements.put(IRS232Service.class.getName(), null);
 			serviceRequirements.put(IStatusValidatorManager.class.getName(), null);
+			
 		}
 		return serviceRequirements;
 	}
@@ -61,26 +52,25 @@ public class Activator extends MonitoringActivator {
 			} else {
 				containerRef = sref;
 				container = (IContainer) getContext().getService(containerRef);
-			}
 
+			}
 		} else if (rType.equalsIgnoreCase("IClientService")) {
 			clientServiceRef = sref;
 			clientService = (IClientService) getContext().getService(clientServiceRef);
-		} else if (rType.equalsIgnoreCase("IRS232Service")) {
-			rs232ServiceRef = sref;
-			rs232Service = (IRS232Service) getContext().getService(rs232ServiceRef);
 		} else if (rType.equalsIgnoreCase("IStatusValidatorManager")) {
 			statusValidatorManagerServiceRef = sref;
 			statusValidatorManager = (IStatusValidatorManager) getContext().getService(statusValidatorManagerServiceRef);
 			statusValidatorManager.addValidator(new DPValidator());
+		} else {
 		}
-		if (!initialized && clientService != null && container != null && rs232Service != null) {
-			controller = new ValidateController();
+		if (!initialized && clientService != null && container != null && statusValidatorManager != null) {
+			controller = new EnrollController();
 			statusValidatorManager.addStatusEventListener(controller);
-			viewContainer = new PnlValidate();
+			viewContainer = new PnlEnroll();
 			controller.addView(viewContainer);
 			viewContainer.setService(clientService);
 			container.getMainContainer().add(viewContainer);
+
 		}
 	}
 
@@ -89,16 +79,23 @@ public class Activator extends MonitoringActivator {
 		String rType = (String) sref.getProperty("type");
 		if (rType.equalsIgnoreCase("IContainer")) {
 			if (sref.compareTo(containerRef) == 0) {
+				// log.info("Location: GeographicSpace unregister detected, removing Location from space");
 				viewContainer.setVisible(false);
 				IMainContainer mainContainer = (IMainContainer) getContext().getService(containerRef);
 				mainContainer.remove(viewContainer);
 				containerRef = null;
 			} else if (containerRef != null) {
+				// log.info("ERROR: unregistered geographic space was gone. Ignore.");
 			} else {
+				// not current service
+				// log.info("ERROR: another geographic space was gone. Ignore.");
 			}
 		} else if (rType.equalsIgnoreCase("IClientService")) {
+			// Probablemente debo hacer read/only el panel.
 		} else {
+			// log.info(String.format(
+			// "Unknown space service unregistering of type %s\n",
+			// spaceType == null ? "unknown" : spaceType));
 		}
 	}
-
 }

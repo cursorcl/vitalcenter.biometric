@@ -10,9 +10,11 @@ public class Rs232Validator implements IStatusValidator {
 	private static final String NAME = "ACTUADOR PUERTA";
 	private StatusInfo status = new StatusInfo(EStatus.UNKNOWN, "No se ha detectado la conexión.");
 	private IRS232Service rs232;
+	private boolean initialized = false;
 
 	public Rs232Validator() {
 		rs232 = Rs232ServiceFactory.getInstance();
+		initialized = true;
 	}
 
 	@Override
@@ -22,12 +24,14 @@ public class Rs232Validator implements IStatusValidator {
 
 	@Override
 	public StatusInfo validate() {
+		if (initialized) {
 		if (rs232.isOpen()) {
 			status.setStatus(EStatus.OK);
 			status.setMessage("Actuador conectado.");
 		} else {
 			status.setStatus(EStatus.FAIL);
 			status.setMessage("Actuador no conectado.");
+			}
 		}
 		return status;
 	}

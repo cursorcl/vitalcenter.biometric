@@ -45,4 +45,12 @@ public class StatusEvent {
 	public EStatus getStatus() {
 		return status;
 	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return source.toString() + " [" + status.name() + "]";
+	}
+	
+	
 }

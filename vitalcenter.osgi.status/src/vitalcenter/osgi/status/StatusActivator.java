@@ -19,9 +19,7 @@ import vitalcenter.osgi.status.validator.StatusValidatorFactory;
 public class StatusActivator extends MonitoringActivator {
 
 	private ServiceRegistration<?> registration = null;
-	private ServiceReference<?> containerRef = null;
 	private Map<String, Properties> serviceRequirements = null;
-	private IContainer container;
 	private IStatusValidatorManager statusService = null;
 
 	@Override

@@ -3,6 +3,7 @@ package cl.eos.interfaces.view;
 import java.awt.Dimension;
 import java.util.List;
 
+import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.interfaces.controller.IController;
 import cl.eos.interfaces.entity.IEntity;
 
@@ -84,6 +85,14 @@ public interface IView {
 	 */
 	void onFound(IEntity entity);
 	
+	/**
+	 * Notificacion de cambios de estado que puedan interesar a la HMI. La HMI
+	 * espera uno o más estados especificos.
+	 * 
+	 * @param status
+	 *            El estado informado.
+	 */
+	void onChangeStatus(StatusEvent status);
 
 	Dimension getPreferredSize();
 	

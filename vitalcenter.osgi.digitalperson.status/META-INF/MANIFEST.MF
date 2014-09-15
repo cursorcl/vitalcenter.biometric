@@ -11,3 +11,4 @@ Import-Package: cl.eos.interfaces.view,
  org.osgi.framework;version="1.3.0",
  vitalcenter.osgi.status.api
 Require-Bundle: lib.digitalpersona.verfication;bundle-version="1.0.0"
+Export-Package: vitalcenter.osgi.digitalperson.status.validate

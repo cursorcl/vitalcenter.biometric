@@ -12,15 +12,20 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
 import net.miginfocom.swing.MigLayout;
+import vitalcenter.osgi.digitalperson.status.validate.DPValidator;
 import vitalcenter.osgi.persistence.models.Client;
 import vitalcenter.osgi.persistence.models.IClientService;
 import vitalcenter.osgi.rs232.IRS232Service;
 import vitalcenter.osgi.rs232.provider.Rs232ServiceFactory;
+import vitalcenter.osgi.rs232.status.validator.Rs232Validator;
+import vitalcenter.osgi.status.api.EStatus;
+import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.imp.view.AFormView;
 import cl.eos.interfaces.entity.IEntity;
 import cl.eos.interfaces.view.IViewContainer;
@@ -46,6 +51,8 @@ public class PnlValidate extends AFormView implements IViewContainer {
 	private JPanel panel;
 	private IRS232Service rs232;
 	private Timer timer;
+	private boolean isReaderOk;
+	private boolean isActionerOk;
 
 	/**
 	 * Create the panel.
@@ -169,6 +176,37 @@ public class PnlValidate extends AFormView implements IViewContainer {
 				lblExpiration.setText("");
 			}
 		}, 2000);
+
+	}
+	
+	@Override
+	public void onChangeStatus(StatusEvent status) {
+		if(status.getSource() instanceof DPValidator)
+		{
+			EStatus lStatus = status.getStatus();
+			isReaderOk = lStatus.equals(EStatus.OK);
+			verificationControl.setEnabled(isReaderOk);
+			btnActivate.setEnabled(isReaderOk);
+			btnStop.setEnabled(isReaderOk);
+			panel.setEnabled(isReaderOk);
+			if(!isReaderOk)
+			{
+				JOptionPane.showMessageDialog(this, "Problemas con el lector de huellas", "Problema", JOptionPane.ERROR_MESSAGE);
+			}
+		} else 
+		if(status.getSource() instanceof Rs232Validator)
+		{
+			EStatus lStatus = status.getStatus();
+			isActionerOk = lStatus.equals(EStatus.OK);
+			verificationControl.setEnabled(isActionerOk);
+			btnActivate.setEnabled(isActionerOk);
+			btnStop.setEnabled(isActionerOk);
+			panel.setEnabled(isActionerOk);
+			if(!isActionerOk && !EStatus.UNKNOWN.equals(lStatus))
+			{
+				JOptionPane.showMessageDialog(this, "Problemas con el actuador de la puerta", "Problema", JOptionPane.ERROR_MESSAGE);
+			}
+		}
 
 	}
 }

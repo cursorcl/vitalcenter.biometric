@@ -12,3 +12,4 @@ Import-Package: kernel.osgi,
  vitalcenter.osgi.rs232.provider,
  vitalcenter.osgi.status.api
 Require-Bundle: lib.rs232;bundle-version="1.0.0", lib.mig.layout;bundle-version="1.0.0"
+Export-Package: vitalcenter.osgi.rs232.status.validator
