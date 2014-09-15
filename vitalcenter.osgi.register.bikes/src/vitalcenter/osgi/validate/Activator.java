@@ -15,7 +15,7 @@ import vitalcenter.osgi.persistence.models.IClientService;
 import vitalcenter.osgi.rs232.IRS232Service;
 import cl.eos.interfaces.status.api.IStatusValidatorManager;
 import cl.eos.validate.controller.RegisterBikeController;
-import cl.eos.validate.view.PnlRegisterBikes;
+import cl.eos.validate.view.PnlClassRoom;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -30,7 +30,7 @@ public class Activator extends MonitoringActivator {
 	private ServiceReference<?> rs232ServiceRef = null;
 	private ServiceReference<?> statusValidatorManagerServiceRef = null;
 	private Map<String, Properties> serviceRequirements = null;
-	private PnlRegisterBikes viewContainer;
+	private PnlClassRoom viewContainer;
 	private IStatusValidatorManager statusValidatorManager = null;
 	private IClientService clientService;
 	private IContainer container;
@@ -77,7 +77,7 @@ public class Activator extends MonitoringActivator {
 		if (!initialized && clientService != null && container != null && rs232Service != null) {
 			controller = new RegisterBikeController();
 			statusValidatorManager.addStatusEventListener(controller);
-			viewContainer = new PnlRegisterBikes();
+			viewContainer = new PnlClassRoom();
 			controller.addView(viewContainer);
 			viewContainer.setService(clientService);
 			container.getMainContainer().add(viewContainer);

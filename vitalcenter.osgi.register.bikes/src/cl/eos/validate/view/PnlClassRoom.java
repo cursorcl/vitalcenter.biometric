@@ -4,6 +4,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import vitalcenter.osgi.persistence.models.IClientService;
 import cl.eos.imp.view.AFormView;
 import cl.eos.interfaces.view.IViewContainer;
 
@@ -31,6 +32,7 @@ public class PnlClassRoom extends AFormView implements IViewContainer {
 	private PnlBike pnlBike_18;
 	private PnlBike pnlBike_19;
 	private PnlBike pnlBike_20;
+	private IClientService service;
 
 	/**
 	 * Create the panel.
@@ -448,5 +450,13 @@ public class PnlClassRoom extends AFormView implements IViewContainer {
 			pnlBike_20.setNumber("14");
 		}
 		return pnlBike_20;
+	}
+	
+	public IClientService getService() {
+		return service;
+	}
+
+	public void setService(IClientService service) {
+		this.service = service;
 	}
 }

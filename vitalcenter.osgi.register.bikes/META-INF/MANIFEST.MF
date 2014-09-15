@@ -31,5 +31,4 @@ Bundle-ClassPath: .
 Require-Bundle: lib.mig.layout;bundle-version="1.0.0",
  lib.sqlite;bundle-version="1.0.0",
  lib.digitalpersona.verfication;bundle-version="1.0.0",
- vitalcenter.osgi.digitalperson.status,
- lib.javafx.extra;bundle-version="1.0.0"
+ vitalcenter.osgi.digitalperson.status
