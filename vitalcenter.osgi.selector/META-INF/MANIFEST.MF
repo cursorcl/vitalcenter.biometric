@@ -7,5 +7,4 @@ Bundle-Activator: vitalcenter.osgi.selector.Activator
 Bundle-Vendor: EOS
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.osgi.framework;version="1.3.0"
-Require-Bundle: lib.javafx;bundle-version="1.0.0",
- lib.sqlite;bundle-version="1.0.0"
+Require-Bundle: lib.sqlite;bundle-version="1.0.0"
