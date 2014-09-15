@@ -11,6 +11,6 @@ Export-Package: cl.eos.imp.controller,
  cl.eos.interfaces.criteria,
  cl.eos.interfaces.entity,
  cl.eos.interfaces.model,
+ cl.eos.interfaces.status.api,
  cl.eos.interfaces.view
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: vitalcenter.osgi.status.api

@@ -9,7 +9,7 @@ import kernel.osgi.MonitoringActivator;
 import org.osgi.framework.ServiceReference;
 
 import vitalcenter.osgi.rs232.status.validator.Rs232Validator;
-import vitalcenter.osgi.status.api.IStatusValidatorManager;
+import cl.eos.interfaces.status.api.IStatusValidatorManager;
 
 public class Rs232Activator extends MonitoringActivator {
 

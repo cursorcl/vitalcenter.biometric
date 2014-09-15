@@ -6,9 +6,9 @@ Bundle-Version: 1.0.0
 Bundle-Activator: vitalcenter.osgi.digitalperson.status.Activator
 Bundle-Vendor: EOS
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: cl.eos.interfaces.view,
+Import-Package: cl.eos.interfaces.status.api,
+ cl.eos.interfaces.view,
  kernel.osgi,
- org.osgi.framework;version="1.3.0",
- vitalcenter.osgi.status.api
+ org.osgi.framework;version="1.3.0"
 Require-Bundle: lib.digitalpersona.verfication;bundle-version="1.0.0"
 Export-Package: vitalcenter.osgi.digitalperson.status.validate

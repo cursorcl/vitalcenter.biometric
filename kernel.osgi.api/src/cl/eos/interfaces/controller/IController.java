@@ -2,8 +2,8 @@ package cl.eos.interfaces.controller;
 
 import java.util.List;
 
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.interfaces.entity.IEntity;
+import cl.eos.interfaces.status.api.StatusEvent;
 import cl.eos.interfaces.view.IView;
 
 public interface IController {

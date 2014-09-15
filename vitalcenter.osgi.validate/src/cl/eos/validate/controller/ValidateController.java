@@ -7,10 +7,10 @@ import vitalcenter.osgi.persistence.ClientServiceFactory;
 import vitalcenter.osgi.persistence.models.Client;
 import vitalcenter.osgi.persistence.models.TemplateInfo;
 import vitalcenter.osgi.rs232.status.validator.Rs232Validator;
-import vitalcenter.osgi.status.api.EStatus;
-import vitalcenter.osgi.status.api.IStatusEventListener;
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.imp.controller.AController;
+import cl.eos.interfaces.status.api.EStatus;
+import cl.eos.interfaces.status.api.IStatusEventListener;
+import cl.eos.interfaces.status.api.StatusEvent;
 
 import com.digitalpersona.onetouch.DPFPFeatureSet;
 import com.digitalpersona.onetouch.DPFPGlobal;

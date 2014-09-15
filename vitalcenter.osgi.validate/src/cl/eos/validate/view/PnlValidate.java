@@ -24,10 +24,10 @@ import vitalcenter.osgi.persistence.models.IClientService;
 import vitalcenter.osgi.rs232.IRS232Service;
 import vitalcenter.osgi.rs232.provider.Rs232ServiceFactory;
 import vitalcenter.osgi.rs232.status.validator.Rs232Validator;
-import vitalcenter.osgi.status.api.EStatus;
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.imp.view.AFormView;
 import cl.eos.interfaces.entity.IEntity;
+import cl.eos.interfaces.status.api.EStatus;
+import cl.eos.interfaces.status.api.StatusEvent;
 import cl.eos.interfaces.view.IViewContainer;
 import cl.eos.validate.controller.ValidateController;
 

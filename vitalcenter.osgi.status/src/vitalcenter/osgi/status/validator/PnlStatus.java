@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
-import vitalcenter.osgi.status.api.IStatusValidator;
 import cl.eos.imp.view.AFormView;
+import cl.eos.interfaces.status.api.IStatusValidator;
 import cl.eos.interfaces.view.IViewContainer;
 
 public class PnlStatus extends AFormView implements IViewContainer {

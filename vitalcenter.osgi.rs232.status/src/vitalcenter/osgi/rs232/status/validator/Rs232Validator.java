@@ -2,9 +2,9 @@ package vitalcenter.osgi.rs232.status.validator;
 
 import vitalcenter.osgi.rs232.IRS232Service;
 import vitalcenter.osgi.rs232.provider.Rs232ServiceFactory;
-import vitalcenter.osgi.status.api.EStatus;
-import vitalcenter.osgi.status.api.IStatusValidator;
-import vitalcenter.osgi.status.api.StatusInfo;
+import cl.eos.interfaces.status.api.EStatus;
+import cl.eos.interfaces.status.api.IStatusValidator;
+import cl.eos.interfaces.status.api.StatusInfo;
 
 public class Rs232Validator implements IStatusValidator {
 	private static final String NAME = "ACTUADOR PUERTA";

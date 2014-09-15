@@ -3,9 +3,9 @@ package cl.eos.interfaces.view;
 import java.awt.Dimension;
 import java.util.List;
 
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.interfaces.controller.IController;
 import cl.eos.interfaces.entity.IEntity;
+import cl.eos.interfaces.status.api.StatusEvent;
 
 /**
  * Interface que debe implemetar todas las vistas.. Viene siendo una vista de

@@ -1,6 +1,6 @@
 package vitalcenter.osgi.status.validator;
 
-import vitalcenter.osgi.status.api.IStatusValidatorManager;
+import cl.eos.interfaces.status.api.IStatusValidatorManager;
 
 public class StatusValidatorFactory {
 

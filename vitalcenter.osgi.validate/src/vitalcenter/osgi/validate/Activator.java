@@ -13,7 +13,7 @@ import org.osgi.framework.ServiceReference;
 import vitalcenter.osgi.digitalperson.status.validate.DPValidator;
 import vitalcenter.osgi.persistence.models.IClientService;
 import vitalcenter.osgi.rs232.IRS232Service;
-import vitalcenter.osgi.status.api.IStatusValidatorManager;
+import cl.eos.interfaces.status.api.IStatusValidatorManager;
 import cl.eos.validate.controller.ValidateController;
 import cl.eos.validate.view.PnlValidate;
 

@@ -3,11 +3,11 @@ package cl.eos.enroll.controller;
 import vitalcenter.osgi.persistence.ClientServiceFactory;
 import vitalcenter.osgi.persistence.models.Client;
 import vitalcenter.osgi.persistence.models.TemplateInfo;
-import vitalcenter.osgi.status.api.IStatusEventListener;
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.enroll.model.ClientModel;
 import cl.eos.enroll.validator.DPValidator;
 import cl.eos.imp.controller.AController;
+import cl.eos.interfaces.status.api.IStatusEventListener;
+import cl.eos.interfaces.status.api.StatusEvent;
 
 public class EnrollController extends AController implements IStatusEventListener {
 

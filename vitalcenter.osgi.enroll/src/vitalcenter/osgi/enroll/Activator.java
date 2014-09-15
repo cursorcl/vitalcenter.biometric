@@ -11,10 +11,10 @@ import kernel.osgi.api.space.IMainContainer;
 import org.osgi.framework.ServiceReference;
 
 import vitalcenter.osgi.persistence.models.IClientService;
-import vitalcenter.osgi.status.api.IStatusValidatorManager;
 import cl.eos.enroll.controller.EnrollController;
 import cl.eos.enroll.validator.DPValidator;
 import cl.eos.enroll.view.PnlEnroll;
+import cl.eos.interfaces.status.api.IStatusValidatorManager;
 
 public class Activator extends MonitoringActivator {
 

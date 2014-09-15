@@ -1,4 +1,4 @@
-package vitalcenter.osgi.status.api;
+package cl.eos.interfaces.status.api;
 
 
 public interface IStatusValidatorManager {

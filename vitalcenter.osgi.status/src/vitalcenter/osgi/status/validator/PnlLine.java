@@ -9,8 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 
-import vitalcenter.osgi.status.api.IStatusValidator;
+import cl.eos.interfaces.status.api.IStatusValidator;
 import net.miginfocom.swing.MigLayout;
+
 import java.awt.Dimension;
 
 public class PnlLine extends JPanel {

@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import vitalcenter.osgi.status.api.EStatus;
-import vitalcenter.osgi.status.api.IStatusEventListener;
-import vitalcenter.osgi.status.api.IStatusValidator;
-import vitalcenter.osgi.status.api.IStatusValidatorManager;
-import vitalcenter.osgi.status.api.StatusEvent;
-import vitalcenter.osgi.status.api.StatusInfo;
+import cl.eos.interfaces.status.api.EStatus;
+import cl.eos.interfaces.status.api.IStatusEventListener;
+import cl.eos.interfaces.status.api.IStatusValidator;
+import cl.eos.interfaces.status.api.IStatusValidatorManager;
+import cl.eos.interfaces.status.api.StatusEvent;
+import cl.eos.interfaces.status.api.StatusInfo;
 
 public class StatusValidatorManager implements IStatusValidatorManager {
 

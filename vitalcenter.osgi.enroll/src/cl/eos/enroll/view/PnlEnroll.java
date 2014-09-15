@@ -14,12 +14,12 @@ import net.miginfocom.swing.MigLayout;
 import vitalcenter.osgi.persistence.models.Client;
 import vitalcenter.osgi.persistence.models.IClientService;
 import vitalcenter.osgi.persistence.models.TemplateInfo;
-import vitalcenter.osgi.status.api.EStatus;
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.enroll.controller.EnrollController;
 import cl.eos.enroll.validator.DPValidator;
 import cl.eos.imp.view.AFormView;
 import cl.eos.interfaces.entity.IEntity;
+import cl.eos.interfaces.status.api.EStatus;
+import cl.eos.interfaces.status.api.StatusEvent;
 import cl.eos.interfaces.view.IViewContainer;
 
 import com.digitalpersona.onetouch.DPFPFingerIndex;

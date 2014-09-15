@@ -1,4 +1,4 @@
-package vitalcenter.osgi.status.api;
+package cl.eos.interfaces.status.api;
 
 /**
  * Evento que notifica cuando hay cambio de estado en un componente.

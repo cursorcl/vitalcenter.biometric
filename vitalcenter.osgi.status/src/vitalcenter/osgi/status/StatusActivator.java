@@ -13,7 +13,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 
-import vitalcenter.osgi.status.api.IStatusValidatorManager;
+import cl.eos.interfaces.status.api.IStatusValidatorManager;
 import vitalcenter.osgi.status.validator.StatusValidatorFactory;
 
 public class StatusActivator extends MonitoringActivator {

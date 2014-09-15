@@ -9,7 +9,7 @@ import kernel.osgi.MonitoringActivator;
 import org.osgi.framework.ServiceReference;
 
 import vitalcenter.osgi.digitalperson.status.validate.DPValidator;
-import vitalcenter.osgi.status.api.IStatusValidatorManager;
+import cl.eos.interfaces.status.api.IStatusValidatorManager;
 
 
 public class Activator extends MonitoringActivator {

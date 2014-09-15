@@ -3,10 +3,10 @@ package cl.eos.imp.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.interfaces.controller.IController;
 import cl.eos.interfaces.entity.IEntity;
 import cl.eos.interfaces.model.IModel;
+import cl.eos.interfaces.status.api.StatusEvent;
 import cl.eos.interfaces.view.IView;
 
 public abstract class AController implements IController {

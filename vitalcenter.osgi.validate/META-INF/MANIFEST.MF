@@ -14,6 +14,7 @@ Import-Package: cl.eos.imp.controller,
  cl.eos.interfaces.criteria,
  cl.eos.interfaces.entity,
  cl.eos.interfaces.model,
+ cl.eos.interfaces.status.api,
  cl.eos.interfaces.view,
  com.digitalpersona.onetouch.readers,
  kernel.osgi,
@@ -25,8 +26,7 @@ Import-Package: cl.eos.imp.controller,
  vitalcenter.osgi.persistence.models,
  vitalcenter.osgi.rs232,
  vitalcenter.osgi.rs232.provider,
- vitalcenter.osgi.rs232.status.validator,
- vitalcenter.osgi.status.api
+ vitalcenter.osgi.rs232.status.validator
 Bundle-ClassPath: .
 Require-Bundle: lib.mig.layout;bundle-version="1.0.0",
  lib.sqlite;bundle-version="1.0.0",

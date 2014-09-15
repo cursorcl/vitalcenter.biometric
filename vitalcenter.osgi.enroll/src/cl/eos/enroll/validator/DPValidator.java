@@ -1,8 +1,8 @@
 package cl.eos.enroll.validator;
 
-import vitalcenter.osgi.status.api.EStatus;
-import vitalcenter.osgi.status.api.IStatusValidator;
-import vitalcenter.osgi.status.api.StatusInfo;
+import cl.eos.interfaces.status.api.EStatus;
+import cl.eos.interfaces.status.api.IStatusValidator;
+import cl.eos.interfaces.status.api.StatusInfo;
 
 import com.digitalpersona.onetouch.DPFPGlobal;
 import com.digitalpersona.onetouch.readers.DPFPReaderDescription;

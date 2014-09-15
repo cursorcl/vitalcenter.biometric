@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import vitalcenter.osgi.status.api.StatusEvent;
 import cl.eos.interfaces.controller.IController;
 import cl.eos.interfaces.entity.IEntity;
+import cl.eos.interfaces.status.api.StatusEvent;
 import cl.eos.interfaces.view.IView;
 
 public class AView extends JPanel implements IView {

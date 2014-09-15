@@ -13,13 +13,13 @@ Import-Package: cl.eos.imp.controller,
  cl.eos.interfaces.criteria,
  cl.eos.interfaces.entity,
  cl.eos.interfaces.model,
+ cl.eos.interfaces.status.api,
  cl.eos.interfaces.view,
  kernel.osgi,
  kernel.osgi.api.space,
  org.osgi.framework,
  vitalcenter.osgi.persistence,
- vitalcenter.osgi.persistence.models,
- vitalcenter.osgi.status.api
+ vitalcenter.osgi.persistence.models
 Bundle-ClassPath: .
 Require-Bundle: lib.mig.layout;bundle-version="1.0.0",
  lib.digitalpersona.enroll;bundle-version="1.0.0"
