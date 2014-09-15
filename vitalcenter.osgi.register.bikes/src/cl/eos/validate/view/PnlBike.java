@@ -17,7 +17,7 @@ public class PnlBike extends JPanel {
 	private JLabel lblName;
 
 	private String number;
-	private String name;
+	private String client;
 
 	/**
 	 * Create the panel.
@@ -76,12 +76,12 @@ public class PnlBike extends JPanel {
 		btnRegister.setText(number);
 	}
 
-	public String getName() {
-		return name;
+	public String getClient() {
+		return client;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setClient(String name) {
+		this.client = name;
 		lblName.setText(name);
 	}
 

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import jfxtras.labs.scene.control.gauge.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import jfxtras.labs.scene.control.radialmenu.*?>
+<?import jfxtras.labs.scene.control.*?>
+<?import jfxtras.labs.scene.layout.*?>
+<?import jfxtras.scene.control.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.eos.validate.view.RegisterBikesController">
+   <children>
+      <Button fx:id="btn3" layoutX="533.0" layoutY="243.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="3" />
+      <Button fx:id="btn2" layoutX="533.0" layoutY="186.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="2" />
+      <Button fx:id="btn1" layoutX="533.0" layoutY="123.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="1" />
+      <Button fx:id="btn19" layoutX="533.0" layoutY="65.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="19" />
+      <Button fx:id="btn7" layoutX="159.0" layoutY="249.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="7" />
+      <Button fx:id="btn8" layoutX="159.0" layoutY="192.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="8" />
+      <Button fx:id="btn9" layoutX="159.0" layoutY="129.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="9" />
+      <Button fx:id="btn20" layoutX="159.0" layoutY="71.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="20" />
+      <Button fx:id="btn4" layoutX="481.0" layoutY="313.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="4" />
+      <Button fx:id="btn5" layoutX="360.0" layoutY="316.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="5" />
+      <Button fx:id="btn6" layoutX="236.0" layoutY="316.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="6" />
+      <Button fx:id="btn10" layoutX="539.0" layoutY="377.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="10" />
+      <Button fx:id="btn11" layoutX="417.0" layoutY="377.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="11" />
+      <Button fx:id="btn12" layoutX="296.0" layoutY="380.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="12" />
+      <Button fx:id="btn13" layoutX="172.0" layoutY="380.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="13" />
+      <Button fx:id="btn14" layoutX="614.0" layoutY="437.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="14" />
+      <Button fx:id="btn15" layoutX="487.0" layoutY="440.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="15" />
+      <Button fx:id="btn16" layoutX="365.0" layoutY="440.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="16" />
+      <MiniIconButton layoutX="760.0" layoutY="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <MiniIconButton layoutX="761.0" layoutY="21.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0" />
+      <Button fx:id="btnProfesor" layoutX="334.0" layoutY="61.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" text="Prefesor" />
+      <Button fx:id="btn18" layoutX="120.0" layoutY="443.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="18" />
+      <MiniIconButton fx:id="rmv18" layoutX="218.0" layoutY="431.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl18" layoutX="122.0" layoutY="462.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn17" layoutX="244.0" layoutY="443.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="106.0" text="17" />
+      <Label fx:id="lbl17" layoutX="246.0" layoutY="462.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv17" layoutX="342.0" layoutY="431.0" prefHeight="16.0" prefWidth="16.0" />
+      <MiniIconButton fx:id="rmv16" layoutX="463.0" layoutY="428.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl16" layoutX="367.0" layoutY="459.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv15" layoutX="585.0" layoutY="428.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl15" layoutX="489.0" layoutY="459.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv14" layoutX="712.0" layoutY="425.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl14" layoutX="616.0" layoutY="456.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl10" layoutX="541.0" layoutY="396.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv10" layoutX="637.0" layoutY="365.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl11" layoutX="419.0" layoutY="396.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv11" layoutX="515.0" layoutY="365.0" prefHeight="16.0" prefWidth="16.0" />
+      <MiniIconButton fx:id="rmv12" layoutX="394.0" layoutY="368.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl12" layoutX="298.0" layoutY="399.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl13" layoutX="174.0" layoutY="399.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv13" layoutX="270.0" layoutY="368.0" prefHeight="16.0" prefWidth="16.0" />
+      <MiniIconButton fx:id="rmv6" layoutX="334.0" layoutY="304.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl6" layoutX="238.0" layoutY="335.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl5" layoutX="362.0" layoutY="335.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv5" layoutX="458.0" layoutY="304.0" prefHeight="16.0" prefWidth="16.0" />
+      <MiniIconButton fx:id="rmv4" layoutX="579.0" layoutY="301.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl4" layoutX="483.0" layoutY="332.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl20" layoutX="161.0" layoutY="90.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv20" layoutX="257.0" layoutY="59.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl9" layoutX="161.0" layoutY="148.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv9" layoutX="257.0" layoutY="117.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl8" layoutX="161.0" layoutY="211.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv8" layoutX="257.0" layoutY="180.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl7" layoutX="161.0" layoutY="268.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv7" layoutX="257.0" layoutY="237.0" prefHeight="16.0" prefWidth="16.0" />
+      <MiniIconButton fx:id="rmv3" layoutX="631.0" layoutY="231.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl3" layoutX="535.0" layoutY="262.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv2" layoutX="631.0" layoutY="174.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl2" layoutX="535.0" layoutY="205.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv1" layoutX="631.0" layoutY="111.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl1" layoutX="535.0" layoutY="142.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <MiniIconButton fx:id="rmv19" layoutX="631.0" layoutY="53.0" prefHeight="16.0" prefWidth="16.0" />
+      <Label fx:id="lbl19" layoutX="535.0" layoutY="84.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblProfesor" layoutX="358.0" layoutY="90.0" prefHeight="17.0" prefWidth="106.0" text="Eliecer Osorio Verdugo">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPorcentaje" alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="152.0" prefHeight="88.0" prefWidth="178.0" text="100%" textAlignment="CENTER" AnchorPane.bottomAnchor="299.0" AnchorPane.leftAnchor="326.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="152.0">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <AmbientLight color="CHARTREUSE" layoutX="14.0" layoutY="497.0" lightOn="true" />
+      <DatePicker fx:id="datePicker" layoutX="13.0" layoutY="13.0" />
+   </children>
+</AnchorPane>
