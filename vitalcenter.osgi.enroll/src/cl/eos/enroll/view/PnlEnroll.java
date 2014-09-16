@@ -47,8 +47,8 @@ public class PnlEnroll extends AFormView implements IViewContainer {
 	protected DPFPTemplate template;
 	protected DPFPFingerIndex fingerIndex;
 	private JButton btnBorrar;
-	
-	private boolean isReaderOk = true; 
+
+	private boolean isReaderOk = true;
 	private boolean isFounded = false;
 
 	/**
@@ -137,7 +137,8 @@ public class PnlEnroll extends AFormView implements IViewContainer {
 			btnSearch.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
-					((EnrollController) controller).findRut(txtTxtrut.getText());
+					String rutNormalizado = normalizaRut(txtTxtrut.getText());
+					((EnrollController) controller).findRut(rutNormalizado);
 				}
 			});
 		}
@@ -191,22 +192,19 @@ public class PnlEnroll extends AFormView implements IViewContainer {
 		enrollmentControl.setMaxEnrollFingerCount(1);
 	}
 
-	
-	
 	@Override
 	public void onChangeStatus(StatusEvent status) {
-		if(status.getSource() instanceof DPValidator)
-		{
-			EStatus lStatus = (EStatus)status.getStatus();
+		if (status.getSource() instanceof DPValidator) {
+			EStatus lStatus = (EStatus) status.getStatus();
 			isReaderOk = lStatus.equals(EStatus.OK);
 			getEnrollmentControl().setEnabled(isReaderOk && isFounded);
 			getBtnSearch().setEnabled(isReaderOk);
 			getBtnGrabar().setEnabled(isReaderOk && isFounded);
 			getBtnCancelar().setEnabled(isReaderOk);
 			getTxtTxtrut().setEnabled(isReaderOk);
-			if(!isReaderOk)
-			{
-				JOptionPane.showMessageDialog(this, "Problemas con el lector de huellas", "Problema", JOptionPane.ERROR_MESSAGE);
+			if (!isReaderOk) {
+				JOptionPane.showMessageDialog(this, "Problemas con el lector de huellas", "Problema",
+						JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
@@ -283,5 +281,57 @@ public class PnlEnroll extends AFormView implements IViewContainer {
 			});
 		}
 		return btnBorrar;
+	}
+
+	private String normalizaRut(String rut) {
+		rut = rut.replace(".", "");
+		rut = rut.replace("-", "");
+		int n = rut.length() - 1;
+		String c = rut.substring(n, n + 1);
+		StringBuffer nRut = new StringBuffer();
+
+		nRut.append("-");
+		nRut.append(c);
+
+		char[] chars = rut.toCharArray();
+		for (n = chars.length - 2; n >= 0; n = n - 3) {
+			for (int m = n; m >= n - 2; m--) {
+				if (m >= 0) {
+					nRut.insert(0, chars[m]);
+				}
+			}
+			if (n >= 3) {
+				nRut.insert(0, ".");
+			}
+
+		}
+		return nRut.toString();
+	}
+
+	public static void main(String[] args) {
+		String rut = "16.13781-1";
+		rut = rut.replace(".", "");
+		rut = rut.replace("-", "");
+		int n = rut.length() - 1;
+		String c = rut.substring(n, n + 1);
+		StringBuffer nRut = new StringBuffer();
+
+		nRut.append("-");
+		nRut.append(c);
+
+		char[] chars = rut.toCharArray();
+		for (n = chars.length - 2; n >= 0; n = n - 3) {
+			for (int m = n; m >= n - 2; m--) {
+				if (m >= 0) {
+					nRut.insert(0, chars[m]);
+				}
+			}
+			if (n >= 3) {
+				nRut.insert(0, ".");
+			}
+
+		}
+		System.out.println(nRut.toString());
+
 	}
 }

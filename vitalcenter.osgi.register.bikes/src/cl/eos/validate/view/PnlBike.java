@@ -6,10 +6,15 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JToggleButton;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 import javax.swing.SwingConstants;
+
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PnlBike extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -18,6 +23,8 @@ public class PnlBike extends JPanel {
 
 	private String number;
 	private String client;
+	private String rut;
+	private static final DlgPideHuella dlgPideHuella = new DlgPideHuella();
 
 	/**
 	 * Create the panel.
@@ -52,13 +59,24 @@ public class PnlBike extends JPanel {
 	private JToggleButton getBtnRegister() {
 		if (btnRegister == null) {
 			btnRegister = new JToggleButton("1");
+			btnRegister.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					Point p = new Point(btnRegister.getLocation());
+					
+					SwingUtilities.convertPointToScreen(p, PnlBike.this);
+					dlgPideHuella.setLocation(p);
+					dlgPideHuella.setVisible(true);
+				}
+			});
 		}
 		return btnRegister;
 	}
 
 	private JLabel getLblName() {
 		if (lblName == null) {
-			lblName = new JLabel("Eliecer Osorio Verdugo");
+			lblName = new JLabel("Sin asignar");
 			lblName.setFont(new Font("Tahoma", Font.PLAIN, 9));
 			lblName.setHorizontalAlignment(SwingConstants.CENTER);
 			lblName.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -83,6 +101,14 @@ public class PnlBike extends JPanel {
 	public void setClient(String name) {
 		this.client = name;
 		lblName.setText(name);
+	}
+
+	public String getRut() {
+		return rut;
+	}
+
+	public void setRut(String rut) {
+		this.rut = rut;
 	}
 
 }
