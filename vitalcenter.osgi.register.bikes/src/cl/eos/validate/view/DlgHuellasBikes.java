@@ -1,18 +1,15 @@
 package cl.eos.validate.view;
 
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.util.Date;
 import java.util.List;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
+import net.miginfocom.swing.MigLayout;
 import vitalcenter.osgi.persistence.ClientServiceFactory;
 import vitalcenter.osgi.persistence.models.Client;
 
@@ -26,75 +23,31 @@ import com.digitalpersona.onetouch.ui.swing.DPFPVerificationVetoException;
 import com.digitalpersona.onetouch.verification.DPFPVerification;
 import com.digitalpersona.onetouch.verification.DPFPVerificationResult;
 
-public class DlgPideHuella extends JDialog {
+public class DlgHuellasBikes extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private final JPanel contentPanel = new JPanel();
 	private DPFPVerificationControl verificationControl;
-	private List<Client> listTemplates;
-	private JPanel buttonPane;
 	private JTextField txtRutNombre;
 	private JTextField txtEstado;
-	private JButton okButton;
-	private JButton cancelButton;
+	private JPanel panel;
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+	
+	private List<Client> listTemplates;
 	private Client client;
+
 	/**
 	 * Create the dialog.
 	 */
-	public DlgPideHuella() {
-		setTitle("Coloque huella");
-		setType(Type.POPUP);
-		setAlwaysOnTop(true);
-		setBounds(100, 100, 438, 159);
-		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
-		gl_contentPanel
-				.setHorizontalGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING).addGroup(
-						gl_contentPanel
-								.createSequentialGroup()
-								.addComponent(getVerificationControl(), GroupLayout.PREFERRED_SIZE,
-										GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addGap(10)
-								.addGroup(
-										gl_contentPanel
-												.createParallelGroup(Alignment.LEADING)
-												.addComponent(getTxtRutNombre())
-												.addComponent(getTxtEstado(), GroupLayout.DEFAULT_SIZE, 307,
-														Short.MAX_VALUE))));
-		gl_contentPanel.setVerticalGroup(gl_contentPanel
-				.createParallelGroup(Alignment.LEADING)
-				.addGroup(
-						gl_contentPanel
-								.createSequentialGroup()
-								.addComponent(getVerificationControl(), GroupLayout.DEFAULT_SIZE,
-										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGap(12))
-				.addGroup(
-						gl_contentPanel
-								.createSequentialGroup()
-								.addComponent(getTxtRutNombre(), GroupLayout.PREFERRED_SIZE, 27,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(11)
-								.addComponent(getTxtEstado(), GroupLayout.PREFERRED_SIZE, 36,
-										GroupLayout.PREFERRED_SIZE)));
-		contentPanel.setLayout(gl_contentPanel);
-		getContentPane().add(getButtonPane(), BorderLayout.SOUTH);
+	public DlgHuellasBikes() {
+		setTitle("Coloque la huella");
+		setType(Type.UTILITY);
+		setBounds(100, 100, 450, 204);
+		getContentPane().setLayout(new MigLayout("", "[][][grow]", "[30.00][15.00][36.00][][35.00]"));
+		getContentPane().add(getVerificationControl(), "cell 0 0 1 3,growx,aligny center");
+		getContentPane().add(getTxtRutNombre(), "cell 2 0,grow");
+		getContentPane().add(getTxtEstado(), "cell 2 2,grow");
+		getContentPane().add(getPanel(), "cell 0 4 3 1,grow");
 		listTemplates = ClientServiceFactory.getInstance().getTemplates();
-	}
-
-	private JPanel getButtonPane() {
-		if (buttonPane == null) {
-			buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			okButton = new JButton("Aceptar");
-			okButton.setActionCommand("OK");
-			buttonPane.add(okButton);
-			getRootPane().setDefaultButton(okButton);
-			cancelButton = new JButton("Cancelar");
-			cancelButton.setActionCommand("Cancel");
-			buttonPane.add(cancelButton);
-		}
-		return buttonPane;
 	}
 
 	private DPFPVerificationControl getVerificationControl() {
@@ -105,13 +58,50 @@ public class DlgPideHuella extends JDialog {
 					e.setStopCapture(false);
 					boolean result = validate(e.getFeatureSet());
 					e.setMatched(result);
-					DlgPideHuella.this.setVisible(false);
+					DlgHuellasBikes.this.setVisible(false);
 				}
 			});
 		}
 		return verificationControl;
 	}
-
+	private JTextField getTxtRutNombre() {
+		if (txtRutNombre == null) {
+			txtRutNombre = new JTextField();
+			txtRutNombre.setEditable(false);
+			txtRutNombre.setColumns(10);
+		}
+		return txtRutNombre;
+	}
+	private JTextField getTxtEstado() {
+		if (txtEstado == null) {
+			txtEstado = new JTextField();
+			txtEstado.setEditable(false);
+			txtEstado.setColumns(10);
+		}
+		return txtEstado;
+	}
+	private JPanel getPanel() {
+		if (panel == null) {
+			panel = new JPanel();
+			panel.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+			panel.add(getBtnAceptar());
+			panel.add(getBtnCancelar());
+		}
+		return panel;
+	}
+	private JButton getBtnAceptar() {
+		if (btnAceptar == null) {
+			btnAceptar = new JButton("Aceptar");
+		}
+		return btnAceptar;
+	}
+	private JButton getBtnCancelar() {
+		if (btnCancelar == null) {
+			btnCancelar = new JButton("Cancelar");
+		}
+		return btnCancelar;
+	}
+	
 	/**
 	 * Valida contra la base de datos de clientes.
 	 * 
@@ -137,12 +127,12 @@ public class DlgPideHuella extends JDialog {
 				if (cliente.getExpiration().before(new Date())) {
 					isValid = false;
 					txtEstado.setText(String.format("Contrato caducado en:%s", cliente.getExpiration().toString()));
-					okButton.setEnabled(false);
+					getBtnAceptar().setEnabled(false);
 				}
 				else
 				{
 					txtEstado.setText(String.format("Contrato vigente hasta :%s", cliente.getExpiration().toString()));
-					okButton.setEnabled(true);
+					getBtnAceptar().setEnabled(true);
 					client = lClient;
 				}
 				
@@ -156,25 +146,7 @@ public class DlgPideHuella extends JDialog {
 		}
 		return isValid;
 	}
-
-	private JTextField getTxtRutNombre() {
-		if (txtRutNombre == null) {
-			txtRutNombre = new JTextField();
-			txtRutNombre.setEditable(false);
-			txtRutNombre.setColumns(10);
-		}
-		return txtRutNombre;
-	}
-
-	private JTextField getTxtEstado() {
-		if (txtEstado == null) {
-			txtEstado = new JTextField();
-			txtEstado.setEditable(false);
-			txtEstado.setColumns(10);
-		}
-		return txtEstado;
-	}
-
+	
 	@Override
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);

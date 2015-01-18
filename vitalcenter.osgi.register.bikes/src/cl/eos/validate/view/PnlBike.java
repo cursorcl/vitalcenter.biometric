@@ -10,6 +10,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
 import javax.swing.SwingConstants;
 
+import vitalcenter.osgi.persistence.models.Client;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
@@ -21,10 +23,10 @@ public class PnlBike extends JPanel {
 	private JToggleButton btnRegister;
 	private JLabel lblName;
 
+	private Client client;
 	private String number;
-	private String client;
 	private String rut;
-	private static final DlgPideHuella dlgPideHuella = new DlgPideHuella();
+	private static final DlgHuellasBikes dlgPideHuella = new DlgHuellasBikes();
 
 	/**
 	 * Create the panel.
@@ -68,6 +70,10 @@ public class PnlBike extends JPanel {
 					SwingUtilities.convertPointToScreen(p, PnlBike.this);
 					dlgPideHuella.setLocation(p);
 					dlgPideHuella.setVisible(true);
+					if(dlgPideHuella.getClient() != null)
+					{
+						setClient(client);
+					}
 				}
 			});
 		}
@@ -94,13 +100,13 @@ public class PnlBike extends JPanel {
 		btnRegister.setText(number);
 	}
 
-	public String getClient() {
+	public Client getClient() {
 		return client;
 	}
 
-	public void setClient(String name) {
-		this.client = name;
-		lblName.setText(name);
+	public void setClient(Client client) {
+		this.client = client;
+		lblName.setText(client.getName());
 	}
 
 	public String getRut() {

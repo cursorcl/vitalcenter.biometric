@@ -3,9 +3,10 @@ Bundle-Name: Provider
 Bundle-SymbolicName: vitalcenter.osgi.persistence.provider
 Bundle-Version: 1.0.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.sqlite,
+Import-Package: cl.eos.util,
+ org.osgi.framework,
+ org.sqlite,
  org.sqlite.javax,
- vitalcenter.osgi.persistence.models,
- org.osgi.framework
+ vitalcenter.osgi.persistence.models
 Export-Package: vitalcenter.osgi.persistence
 Bundle-Activator: vitalcenter.osgi.activator.Activator

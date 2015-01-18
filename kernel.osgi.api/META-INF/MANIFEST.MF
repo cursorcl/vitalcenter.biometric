@@ -12,5 +12,6 @@ Export-Package: cl.eos.imp.controller,
  cl.eos.interfaces.entity,
  cl.eos.interfaces.model,
  cl.eos.interfaces.status.api,
- cl.eos.interfaces.view
+ cl.eos.interfaces.view,
+ cl.eos.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

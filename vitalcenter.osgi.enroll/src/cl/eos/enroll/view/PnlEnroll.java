@@ -28,6 +28,8 @@ import com.digitalpersona.onetouch.ui.swing.DPFPEnrollmentControl;
 import com.digitalpersona.onetouch.ui.swing.DPFPEnrollmentEvent;
 import com.digitalpersona.onetouch.ui.swing.DPFPEnrollmentListener;
 import com.digitalpersona.onetouch.ui.swing.DPFPEnrollmentVetoException;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PnlEnroll extends AFormView implements IViewContainer {
 
@@ -112,6 +114,15 @@ public class PnlEnroll extends AFormView implements IViewContainer {
 	private JTextField getTxtTxtrut() {
 		if (txtTxtrut == null) {
 			txtTxtrut = new JTextField();
+			txtTxtrut.addKeyListener(new KeyAdapter() {
+				@Override
+				public void keyPressed(KeyEvent e) {
+					if(e.getKeyCode() ==  KeyEvent.VK_ENTER)
+					{
+						btnSearch.doClick();
+					}
+				}
+			});
 			txtTxtrut.setColumns(10);
 		}
 		return txtTxtrut;

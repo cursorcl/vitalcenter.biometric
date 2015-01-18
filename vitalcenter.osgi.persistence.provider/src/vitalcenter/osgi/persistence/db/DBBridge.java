@@ -1,9 +1,5 @@
 package vitalcenter.osgi.persistence.db;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import vitalcenter.osgi.persistence.models.Client;
 import vitalcenter.osgi.persistence.models.TemplateInfo;
+import cl.eos.util.Utils;
 
 /**
  * Singleton para la conexion a la base de dato.
@@ -62,31 +58,9 @@ public class DBBridge {
 	 * Constructor de la clase.
 	 */
 	private DBBridge() {
-		loadProperties();
+		config = Utils.getDefaultDirectory() + "/template.db";
 		connectVitalcenter();
 		connectTemplates();
-	}
-
-	private void loadProperties() {
-		String sName = System.getProperty("user.home") + "\\config.ini";
-		File file = new File(sName);
-		if (!file.exists()) {
-			sName = System.getProperty("user.dir") + "\\config.ini";
-			file = new File(sName);
-		}
-		FileReader reader;
-		try {
-			reader = new FileReader(file);
-			Properties properties = new Properties();
-			properties.load(reader);
-			config = properties.getProperty("templates", config);
-			reader.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
 	}
 
 	public static DBBridge getInstance() {
