@@ -17,9 +17,12 @@ import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 public class PnlBike extends JPanel {
 	private static final long serialVersionUID = 1L;
+	public static final String PROP_CLIENTE = "PROP_CLIENTE";
 	private JToggleButton btnRegister;
 	private JLabel lblName;
 
@@ -37,23 +40,42 @@ public class PnlBike extends JPanel {
 		setMinimumSize(new Dimension(167, 94));
 		setMaximumSize(new Dimension(167, 94));
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
-				Alignment.TRAILING,
+		groupLayout
+				.setHorizontalGroup(groupLayout
+						.createParallelGroup(Alignment.LEADING)
+						.addGroup(
+								Alignment.TRAILING,
+								groupLayout
+										.createSequentialGroup()
+										.addGap(4)
+										.addGroup(
+												groupLayout
+														.createParallelGroup(
+																Alignment.TRAILING)
+														.addComponent(
+																getLblName(),
+																Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE,
+																113,
+																Short.MAX_VALUE)
+														.addComponent(
+																getBtnRegister(),
+																GroupLayout.DEFAULT_SIZE,
+																99,
+																Short.MAX_VALUE))
+										.addGap(4)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(
+				Alignment.LEADING).addGroup(
 				groupLayout
 						.createSequentialGroup()
 						.addGap(4)
-						.addGroup(
-								groupLayout
-										.createParallelGroup(Alignment.TRAILING)
-										.addComponent(getLblName(), Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 113,
-												Short.MAX_VALUE)
-										.addComponent(getBtnRegister(), GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-						.addGap(4)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
-				groupLayout.createSequentialGroup().addGap(4)
-						.addComponent(getBtnRegister(), GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED).addComponent(getLblName())
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+						.addComponent(getBtnRegister(),
+								GroupLayout.PREFERRED_SIZE, 33,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(getLblName())
+						.addContainerGap(GroupLayout.DEFAULT_SIZE,
+								Short.MAX_VALUE)));
 		setLayout(groupLayout);
 
 	}
@@ -64,16 +86,25 @@ public class PnlBike extends JPanel {
 			btnRegister.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
+
 					Point p = new Point(btnRegister.getLocation());
-					
+
 					SwingUtilities.convertPointToScreen(p, PnlBike.this);
 					dlgPideHuella.setLocation(p);
 					dlgPideHuella.setVisible(true);
-					if(dlgPideHuella.getClient() != null)
-					{
-						setClient(client);
-					}
+					dlgPideHuella.addPropertyChangeListener(PROP_CLIENTE,
+							new PropertyChangeListener() {
+								@Override
+								public void propertyChange(
+										PropertyChangeEvent evt) {
+									if (evt.getNewValue() != null
+											&& evt.getNewValue() instanceof Client) {
+										client = (Client)evt.getNewValue();
+										setClient(client);
+									}
+								}
+							});
+
 				}
 			});
 		}
@@ -86,7 +117,8 @@ public class PnlBike extends JPanel {
 			lblName.setFont(new Font("Tahoma", Font.PLAIN, 9));
 			lblName.setHorizontalAlignment(SwingConstants.CENTER);
 			lblName.setHorizontalTextPosition(SwingConstants.CENTER);
-			lblName.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			lblName.setBorder(new TitledBorder(null, "", TitledBorder.LEADING,
+					TitledBorder.TOP, null, null));
 		}
 		return lblName;
 	}

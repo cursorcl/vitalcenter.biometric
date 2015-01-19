@@ -74,7 +74,7 @@ public class Activator extends MonitoringActivator {
 			statusValidatorManager = (IStatusValidatorManager) getContext().getService(statusValidatorManagerServiceRef);
 			statusValidatorManager.addValidator(new DPValidator());
 		}
-		if (!initialized && clientService != null && container != null && rs232Service != null) {
+		if (!initialized && clientService != null && container != null && rs232Service != null && statusValidatorManager != null) {
 			controller = new RegisterBikeController();
 			statusValidatorManager.addStatusEventListener(controller);
 			viewContainer = new PnlClassRoom();

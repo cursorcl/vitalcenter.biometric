@@ -1,6 +1,8 @@
 package cl.eos.validate.view;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.List;
 
@@ -58,7 +60,6 @@ public class DlgHuellasBikes extends JDialog {
 					e.setStopCapture(false);
 					boolean result = validate(e.getFeatureSet());
 					e.setMatched(result);
-					DlgHuellasBikes.this.setVisible(false);
 				}
 			});
 		}
@@ -92,12 +93,28 @@ public class DlgHuellasBikes extends JDialog {
 	private JButton getBtnAceptar() {
 		if (btnAceptar == null) {
 			btnAceptar = new JButton("Aceptar");
+			btnAceptar.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					firePropertyChange(PnlBike.PROP_CLIENTE, null, client);
+					DlgHuellasBikes.this.setVisible(false);
+				}
+			});
 		}
 		return btnAceptar;
 	}
 	private JButton getBtnCancelar() {
 		if (btnCancelar == null) {
 			btnCancelar = new JButton("Cancelar");
+			btnCancelar.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					DlgHuellasBikes.this.setVisible(false);
+				}
+			});
 		}
 		return btnCancelar;
 	}

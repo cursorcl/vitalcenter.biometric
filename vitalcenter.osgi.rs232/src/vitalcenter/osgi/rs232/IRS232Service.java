@@ -8,7 +8,7 @@ import java.io.IOException;
  * @author eosorio
  */
 public interface IRS232Service {
-	public static final String COMM_PORT_NAME = "COM4";
+	public static final String COMM_PORT_NAME = "COM14";
 
 	/**
 	 * Crea la conexion a la puerta y la deja abierta para su uso.
